@@ -1,0 +1,117 @@
+{
+  "plugins": [
+    "import"
+  ],
+  "ignorePatterns": [
+    "_this_is_virtual_fs_path_/**/*"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "rules": {
+    "strict": 0,
+    "no-console": 0,
+    // note you must disable the base rule as it can report incorrect errors
+    "no-use-before-define": "off",
+    "@typescript-eslint/no-use-before-define": [
+      "error"
+    ],
+    "import/no-unresolved": "error",
+    "react/destructuring-assignment": [
+      0,
+      "never"
+    ],
+    "react/prop-types": 0,
+    "operator-linebreak": 0,
+    "react/jsx-props-no-spreading": 0,
+    "no-unused-vars": 0,
+    "import/no-cycle": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".ts",
+          ".tsx"
+        ]
+      }
+    ],
+    "import/extensions": [
+      0,
+      "never"
+    ],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-empty-function": "off"
+  },
+  "extends": [
+    "airbnb",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "settings": {
+    "import/parsers": {
+      "@typescript-eslint/parser": [
+        ".ts",
+        ".tsx"
+      ]
+    },
+    "import/resolver": {
+      // use <root>/tsconfig.json
+      "typescript": {
+        "alwaysTryTypes": true // always try to resolve types under `<roo/>@types` directory even it doesn't contain any source code, like `@types/unist`
+      },
+      "alias": {
+        "map": [
+          [
+            "@cms",
+            "./src/cms"
+          ],
+          [
+            "@common",
+            "./src/common"
+          ],
+          [
+            "@components",
+            "./src/components"
+          ],
+          [
+            "@hooks",
+            "./src/hooks"
+          ],
+          [
+            "@images",
+            "./src/images"
+          ],
+          [
+            "@redux",
+            "./src/redux"
+          ],
+          [
+            "@styles",
+            "./src/styles"
+          ],
+          [
+            "@templates",
+            "./src/templates"
+          ],
+          [
+            "@utils",
+            "./src/utils"
+          ],
+          [
+            "@views",
+            "./src/views"
+          ]
+        ],
+        "extensions": [
+          ".tsx",
+          ".ts"
+        ]
+      }
+    }
+  },
+  "env": {
+    "browser": true,
+    "jest": true
+  }
+}
