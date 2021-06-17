@@ -9,6 +9,7 @@ import clouds from '@images/clouds3.png';
 import clouds2 from '@images/clouds2.png';
 import MoonPhases from '@images/moon-phases';
 import galileo from '@images/galileo.png';
+import drawing from '@images/drawing.png';
 import { baseBorderStyle } from '@styles/mixins';
 import { doubleSpacer } from '@styles/size';
 
@@ -63,7 +64,7 @@ const Clouds = styled.div`
   background: transparent url(${clouds}) repeat top center;
   z-index: 2;
   opacity: 0.5;
-  animation: ${moveCloudsBack} 500s linear infinite;
+  animation: ${moveCloudsBack} 1000s linear infinite;
 `;
 
 const Clouds2 = styled.div`
@@ -76,7 +77,7 @@ const Clouds2 = styled.div`
   background: transparent url(${clouds2}) repeat top center;
   z-index: 3;
   opacity: 0.5;
-  animation: ${moveCloudsBack} 200s linear infinite;
+  animation: ${moveCloudsBack} 400s linear infinite;
 `;
 
 const HeroContent = styled.div`
@@ -118,6 +119,16 @@ const SecondSectionBackground = styled.div`
   bottom: -${(props) => `${props.theme.sizes.baseSpacerUnit * 20}px`};
   background: url(${galileo}) no-repeat right center;
   opacity: 0.5;
+`;
+
+const ThirdSectionBackground = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: -${(props) => props.theme.sizes.decupleSpacer};
+  background: url(${drawing}) no-repeat left center;
+  opacity: 0.25;
 `;
 
 const SpacerWrapper = styled.div`
@@ -215,6 +226,7 @@ const IndexPage: FunctionComponent<Record<string, never>> = () => {
         </Section>
         <Section background="rgba(243,228,188, 0.2)">
           <SectionInner>
+            <ThirdSectionBackground />
             <PageContainer>
               <Row>
                 <Column md={4}>
