@@ -1,4 +1,4 @@
-import { brandPrimary, brandSecondary, white, black } from './color';
+import { brandPrimary, brandPrimaryHover, brandSecondary, white, black } from './color';
 import {
   quarterSpacer,
   halfSpacer,
@@ -18,6 +18,7 @@ import { fontSizeSmall } from './typography';
 const theme = {
   colors: {
     brandPrimary,
+    brandPrimaryHover,
     brandSecondary,
     white,
     black,

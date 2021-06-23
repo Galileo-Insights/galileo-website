@@ -1,10 +1,11 @@
 import React, { FunctionComponent } from 'react';
 import styled, { keyframes } from 'styled-components';
 import ScrollAnimation from 'react-animate-on-scroll';
+import { StaticImage } from 'gatsby-plugin-image';
 
-import { Column, Layout, PageContainer, Row } from '@components';
+import { Column, Heading, Layout, PageContainer, Row } from '@components';
 import stars from '@images/stars.png';
-import twinkling from '@images/twinkling2.png';
+import twinkling from '@images/twinkling.png';
 import clouds from '@images/clouds3.png';
 import clouds2 from '@images/clouds2.png';
 import MoonPhases from '@images/moon-phases';
@@ -12,6 +13,7 @@ import galileo from '@images/galileo.png';
 import drawing from '@images/drawing.png';
 import { baseBorderStyle } from '@styles/mixins';
 import { doubleSpacer } from '@styles/size';
+import { textColor } from '@styles/color';
 
 const moveTwinkBack = keyframes`
   from { background-position: 0 0; }
@@ -38,7 +40,7 @@ const Stars = styled.div`
   right: 0;
   bottom: 0;
   display: block;
-  background: #040f31 url(${stars}) repeat top center;
+  background: #000000 url(${stars}) repeat top center;
   z-index: 0;
 `;
 
@@ -80,15 +82,6 @@ const Clouds2 = styled.div`
   animation: ${moveCloudsBack} 400s linear infinite;
 `;
 
-const HeroContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-end;
-  text-align: right;
-  padding: ${(props) => props.theme.sizes.decupleSpacer} 0;
-`;
-
 const FirstSectionBackground = styled.div`
   position: absolute;
   top: 0;
@@ -106,7 +99,7 @@ const Section = styled.section`
 `;
 
 const SectionInner = styled.div`
-  padding: 320px 0;
+  padding: ${(props) => props.theme.sizes.decupleSpacer} 0;
   transform: ${(props: { reverse?: boolean }) =>
     props.reverse ? `skew(0, -3deg)` : `skew(0, 3deg)`};
 `;
@@ -145,27 +138,40 @@ const IndexPage: FunctionComponent<Record<string, never>> = () => {
         <Clouds2 />
       </Space>
       <main style={{ position: 'relative', zIndex: 4 }}>
-        <HeroContent>
-          <PageContainer>
-            <Row>
-              <Column md={6} mdOffset={6}>
-                <ScrollAnimation animateIn="animate__fadeIn" animateOnce>
-                  <h1>We make really good software</h1>
-                </ScrollAnimation>
-                <ScrollAnimation animateIn="animate__fadeIn" delay={300} animateOnce>
-                  <p>
-                    We take teams from startup to sold with secure &amp; engaging apps tailored for
-                    your customers.
-                  </p>
-                </ScrollAnimation>
-              </Column>
-            </Row>
-          </PageContainer>
-        </HeroContent>
-
-        <Section background="rgba(2, 10, 34, 0.6)">
+        <div style={{ display: 'grid' }}>
+          <StaticImage
+            style={{ gridArea: '1/1' }}
+            layout="fullWidth"
+            aspectRatio={16 / 9}
+            alt=""
+            src="../images/galileo news wide v2.png"
+            formats={['auto']}
+          />
+          <div
+            style={{
+              gridArea: '1/1',
+              position: 'relative',
+              placeItems: 'center',
+              display: 'grid',
+              alignItems: 'flex-start',
+              padding: '16px',
+            }}
+          >
+            <Heading
+              as="h1"
+              style={{
+                color: 'rgba(0,0,0,.8)',
+                filter: `drop-shadow(0px 0px 8px ${textColor})`,
+              }}
+              align="center"
+            >
+              We make really good software.
+            </Heading>
+          </div>
+        </div>
+        <Section background="rgba(0, 0, 0, 0.6)">
           <FirstSectionBackground style={{ transform: 'skew(0, 5deg)' }}>
-            <MoonPhases fill="rgba(70, 51, 4, .75)" />
+            <MoonPhases fill="#2d2d2d" />
           </FirstSectionBackground>
           <SectionInner>
             <PageContainer>
@@ -173,7 +179,7 @@ const IndexPage: FunctionComponent<Record<string, never>> = () => {
                 <Column md={4} mdOffset={1}>
                   <SpacerWrapper>
                     <ScrollAnimation animateIn="animate__fadeInLeft" animateOnce>
-                      <h2>From Startup to Sold</h2>
+                      <Heading as="h2">From Startup to Sold</Heading>
                       <p>
                         Having worked at Fortune 20 companies, we know how to build software that
                         integrates behind corporate firewalls
@@ -184,7 +190,7 @@ const IndexPage: FunctionComponent<Record<string, never>> = () => {
                 <Column md={4} mdOffset={2}>
                   <SpacerWrapper>
                     <ScrollAnimation animateIn="animate__fadeInRight" animateOnce>
-                      <h2>An Idea is Not Just an Idea</h2>
+                      <Heading as="h2">An Idea is Not Just an Idea</Heading>
                       <p>
                         We work with ideas scribbled in the margins just as easily as we manage
                         existing code. We help bring concepts to life
@@ -196,7 +202,7 @@ const IndexPage: FunctionComponent<Record<string, never>> = () => {
             </PageContainer>
           </SectionInner>
         </Section>
-        <Section background="rgba(70, 51, 4, 0.8)" reverse>
+        <Section background="rgba(61, 117, 100, 0.8)" reverse>
           <SectionInner reverse>
             <SecondSectionBackground />
             <PageContainer>
@@ -210,7 +216,7 @@ const IndexPage: FunctionComponent<Record<string, never>> = () => {
                     />
                   </ScrollAnimation>
                   <ScrollAnimation animateIn="animate__fadeInUp" animateOnce>
-                    <h3>Galileo as a Partner</h3>
+                    <Heading as="h3">Galileo as a Partner</Heading>
                   </ScrollAnimation>
                   <ScrollAnimation animateIn="animate__fadeInUp" delay={300} animateOnce>
                     <p>
@@ -224,27 +230,29 @@ const IndexPage: FunctionComponent<Record<string, never>> = () => {
             </PageContainer>
           </SectionInner>
         </Section>
-        <Section background="rgba(243,228,188, 0.2)">
+        <Section background="rgba(120,120,120, 0.2)">
           <SectionInner>
             <ThirdSectionBackground />
             <PageContainer>
               <Row>
-                <Column md={4}>
+                <Column md={6}>
                   <SpacerWrapper>
                     <ScrollAnimation animateIn="animate__zoomIn" animateOnce>
-                      <h4>Go Faster. Deliver Sooner</h4>
+                      <Heading as="h4">Go Faster. Deliver Sooner</Heading>
                       <p>
                         We are agile, collaborative teachers who do. We aren’t consultants. We apply
                         just the right amount of structure to remove chaos, and replace it with
-                        velocity
+                        velocity.
                       </p>
                     </ScrollAnimation>
                   </SpacerWrapper>
                 </Column>
-                <Column md={4}>
+              </Row>
+              <Row>
+                <Column md={6} mdOffset={3}>
                   <SpacerWrapper>
                     <ScrollAnimation animateIn="animate__zoomIn" delay={300} animateOnce>
-                      <h4>We are Product People</h4>
+                      <Heading as="h4">We are Product People</Heading>
                       <p>
                         We are businesspeople who know technology. We have decades of combined
                         experience across verticals like healthcare, manufacturing, retail, and
@@ -254,10 +262,12 @@ const IndexPage: FunctionComponent<Record<string, never>> = () => {
                     </ScrollAnimation>
                   </SpacerWrapper>
                 </Column>
-                <Column md={4}>
+              </Row>
+              <Row>
+                <Column md={6} mdOffset={6}>
                   <SpacerWrapper>
                     <ScrollAnimation animateIn="animate__zoomIn" delay={600} animateOnce>
-                      <h4>We know the value of everything</h4>
+                      <Heading as="h4">We Know the Value of Everything</Heading>
                       <p>
                         &apos;Value&apos; is not measured just by the lines of code alone. Value
                         comes from delivering secure, compliant solutions that connect with your

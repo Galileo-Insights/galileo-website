@@ -13,7 +13,7 @@ export default function HTML(props) {
           rel="stylesheet"
           type="text/css"
           media="all"
-          href="https://cloud.typography.com/7222118/6340832/css/fonts.css"
+          href="https://cloud.typography.com/7222118/7625032/css/fonts.css"
         />
       </head>
       <body {...props.bodyAttributes}>

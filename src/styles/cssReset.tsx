@@ -80,7 +80,7 @@ const CssReset = createGlobalStyle`
   body {
     font-family: ${fontFamilySansSerif};
     /* https://www.codementor.io/@ricardozea/100-responsive-typography-system-using-a-modular-scale-s5rhft58g */
-    font-size: calc(12px + .35vw); /* Responsive base font size */
+    font-size: calc(14px + .35vw); /* Responsive base font size */
     line-height: calc(21px + 1.05vw); /* Responsive Vertical Rhythm */
     color: ${textColor};
     overflow-x: hidden;
@@ -92,10 +92,11 @@ const CssReset = createGlobalStyle`
     margin-bottom: ${halfSpacer};
     color: ${headingsColor};
     font-family: ${headingsFontFamily};
-    font-weight: 700;
+    font-weight: 800;
   }
 
   p {
+    text-transform: uppercase;
     margin-top: 0;
     margin-bottom: ${baseSpacer};
   }
