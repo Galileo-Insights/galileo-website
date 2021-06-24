@@ -43,6 +43,13 @@ const StyledLogo = styled(Link)`
     transform: rotate(-1080deg);
     filter: saturate(2);
   }
+
+  &:hover span,
+  &:focus span {
+    color: #f7eed6;
+    transform: scale(1.1);
+    filter: ${(props) => `drop-shadow(0px 0px 8px ${props.theme.colors.white})`};
+  }
 `;
 
 const StyledLogoText = styled.span`
@@ -52,13 +59,6 @@ const StyledLogoText = styled.span`
   line-height: 1.2;
   font-size: ${(props) => props.theme.sizes.fontSizeSmall};
   transition: all 0.5s ease-in-out;
-
-  &:hover,
-  &:focus {
-    color: #f7eed6;
-    transform: scale(1.1);
-    filter: ${(props) => `drop-shadow(0px 0px 8px ${props.theme.colors.white})`};
-  }
 `;
 
 const StyledLink = styled(Link)`

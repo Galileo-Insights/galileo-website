@@ -161,7 +161,7 @@ const Work: FunctionComponent<WorkProps> = () => {
         </div>
         <Section background="rgba(0, 0, 0, 0.6)">
           <FirstSectionBackground>
-            <Orbits fill="#2d2d2d" />
+            <Orbits fill="#1d1d1d" />
           </FirstSectionBackground>
           <SectionInner>
             <PageContainer>
