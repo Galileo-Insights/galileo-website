@@ -1,14 +1,18 @@
 import React, { FunctionComponent } from 'react';
-import styled, { ThemeProvider } from 'styled-components';
+import styled, { keyframes, ThemeProvider } from 'styled-components';
 import { Link } from 'gatsby';
-import { FaPhoneAlt, FaMapMarkerAlt, FaGripLinesVertical } from 'react-icons/fa';
+import { FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
+import 'animate.css/animate.min.css';
 
 import CssReset from '@styles/cssReset';
-import 'animate.css/animate.min.css';
 import theme from '@styles/theme';
 import Logo from '@images/logo';
 import { brandPrimaryHover } from '@styles/color';
 import { baseBorderStyle } from '@styles/mixins';
+import stars from '@images/stars.png';
+import twinkling from '@images/twinkling.png';
+import clouds from '@images/clouds3.png';
+import clouds2 from '@images/clouds2.png';
 import { FlexContainer, PageContainer } from '.';
 
 type LayoutProps = {
@@ -79,6 +83,73 @@ const Footer = styled.footer`
   box-shadow: 0px -8px 64px 16px rgba(70, 51, 4, 0.5);
 `;
 
+const moveTwinkBack = keyframes`
+  from { background-position: 0 0; }
+  to { background-position: -10000px 5000px; }
+`;
+
+const moveCloudsBack = keyframes`
+  from { background-position: 0 0; }
+  to { background-position: 10000px 0; }
+`;
+
+const Space = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+`;
+
+const Stars = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  background: #000000 url(${stars}) repeat top center;
+  z-index: 0;
+`;
+
+const Twinkling = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  background: transparent url(${twinkling}) repeat top center;
+  z-index: 1;
+  animation: ${moveTwinkBack} 200s linear infinite;
+`;
+
+const Clouds = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  background: transparent url(${clouds}) repeat top center;
+  z-index: 2;
+  opacity: 0.5;
+  animation: ${moveCloudsBack} 1000s linear infinite;
+`;
+
+const Clouds2 = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: block;
+  background: transparent url(${clouds2}) repeat top center;
+  z-index: 3;
+  opacity: 0.5;
+  animation: ${moveCloudsBack} 400s linear infinite;
+`;
+
 const Layout: FunctionComponent<LayoutProps> = ({ pageTitle, children }) => {
   const renderNav = () => (
     <FlexContainer justifyContent="space-between">
@@ -91,9 +162,9 @@ const Layout: FunctionComponent<LayoutProps> = ({ pageTitle, children }) => {
         </StyledLogoText>
       </StyledLogo>
       <div>
-        <StyledLink to="/">Services</StyledLink>
-        <StyledLink to="/">Work</StyledLink>
-        <StyledLink to="/">Contact</StyledLink>
+        <StyledLink to="/services">Services</StyledLink>
+        <StyledLink to="/work">Work</StyledLink>
+        <StyledLink to="/contact">Contact</StyledLink>
       </div>
     </FlexContainer>
   );
@@ -105,22 +176,25 @@ const Layout: FunctionComponent<LayoutProps> = ({ pageTitle, children }) => {
         <StyledNav>
           <PageContainer>{renderNav()}</PageContainer>
         </StyledNav>
+        <Space>
+          <Stars />
+          <Twinkling />
+          <Clouds />
+          <Clouds2 />
+        </Space>
         {children}
         <Footer>
           <PageContainer>
             {renderNav()}
 
-            <p style={{ textAlign: 'center', opacity: 0.5, fontSize: '.8em' }}>
-              <FlexContainer flexWrap="nowrap">
+            <div style={{ opacity: 0.5, fontSize: '.8em' }}>
+              <FlexContainer justifyContent="space-between">
                 <address style={{ lineHeight: 1.2, margin: '16px 0' }}>
                   <a href="https://goo.gl/maps/3NzoGQEcaE8ivsdy6">
                     <FaMapMarkerAlt /> 738 S. Washington Ave. <br />
                     Royal Oak, MI 48067 <br />
                   </a>
                 </address>
-                <p style={{ margin: '0px 8px' }}>
-                  <FaGripLinesVertical />
-                </p>
                 <p style={{ margin: '16px 0' }}>
                   <a href="tel:+13234254536">
                     <FaPhoneAlt /> (323) GALILEO
@@ -128,7 +202,7 @@ const Layout: FunctionComponent<LayoutProps> = ({ pageTitle, children }) => {
                 </p>
               </FlexContainer>
               <small>&copy; {new Date().getFullYear()} Galileo Insights</small>
-            </p>
+            </div>
           </PageContainer>
         </Footer>
       </div>

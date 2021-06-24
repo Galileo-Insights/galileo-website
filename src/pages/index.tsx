@@ -1,107 +1,20 @@
 import React, { FunctionComponent } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import ScrollAnimation from 'react-animate-on-scroll';
 import { StaticImage } from 'gatsby-plugin-image';
 
-import { Column, Heading, Layout, PageContainer, Row } from '@components';
-import stars from '@images/stars.png';
-import twinkling from '@images/twinkling.png';
-import clouds from '@images/clouds3.png';
-import clouds2 from '@images/clouds2.png';
+import { Column, Heading, Layout, PageContainer, Row, Section, SectionInner } from '@components';
 import MoonPhases from '@images/moon-phases';
 import galileo from '@images/galileo.png';
 import drawing from '@images/drawing.png';
-import { baseBorderStyle } from '@styles/mixins';
 import { doubleSpacer } from '@styles/size';
 import { textColor } from '@styles/color';
-
-const moveTwinkBack = keyframes`
-  from { background-position: 0 0; }
-  to { background-position: -10000px 5000px; }
-`;
-
-const moveCloudsBack = keyframes`
-  from { background-position: 0 0; }
-  to { background-position: 10000px 0; }
-`;
-
-const Space = styled.div`
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-`;
-
-const Stars = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: block;
-  background: #000000 url(${stars}) repeat top center;
-  z-index: 0;
-`;
-
-const Twinkling = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: block;
-  background: transparent url(${twinkling}) repeat top center;
-  z-index: 1;
-  animation: ${moveTwinkBack} 200s linear infinite;
-`;
-
-const Clouds = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: block;
-  background: transparent url(${clouds}) repeat top center;
-  z-index: 2;
-  opacity: 0.5;
-  animation: ${moveCloudsBack} 1000s linear infinite;
-`;
-
-const Clouds2 = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: block;
-  background: transparent url(${clouds2}) repeat top center;
-  z-index: 3;
-  opacity: 0.5;
-  animation: ${moveCloudsBack} 400s linear infinite;
-`;
 
 const FirstSectionBackground = styled.div`
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
-`;
-
-const Section = styled.section`
-  position: relative;
-  background: ${(props: { background?: string; reverse?: boolean }) => props.background};
-  transform: ${(props) => (props.reverse ? `skew(0, 3deg)` : `skew(0, -3deg)`)};
-  overflow: hidden;
-  border-top: ${baseBorderStyle};
-  border-bottom: ${baseBorderStyle};
-`;
-
-const SectionInner = styled.div`
-  padding: ${(props) => props.theme.sizes.decupleSpacer} 0;
-  transform: ${(props: { reverse?: boolean }) =>
-    props.reverse ? `skew(0, -3deg)` : `skew(0, 3deg)`};
 `;
 
 const SecondSectionBackground = styled.div`
@@ -131,12 +44,6 @@ const SpacerWrapper = styled.div`
 const IndexPage: FunctionComponent<Record<string, never>> = () => {
   return (
     <Layout>
-      <Space>
-        <Stars />
-        <Twinkling />
-        <Clouds />
-        <Clouds2 />
-      </Space>
       <main style={{ position: 'relative', zIndex: 4 }}>
         <div style={{ display: 'grid' }}>
           <StaticImage
@@ -162,6 +69,7 @@ const IndexPage: FunctionComponent<Record<string, never>> = () => {
               style={{
                 color: 'rgba(0,0,0,.8)',
                 filter: `drop-shadow(0px 0px 8px ${textColor})`,
+                fontSize: '3em',
               }}
               align="center"
             >
@@ -178,7 +86,7 @@ const IndexPage: FunctionComponent<Record<string, never>> = () => {
               <Row>
                 <Column md={4} mdOffset={1}>
                   <SpacerWrapper>
-                    <ScrollAnimation animateIn="animate__fadeInLeft" animateOnce>
+                    <ScrollAnimation animateIn="animate__fadeInLeft">
                       <Heading as="h2">From Startup to Sold</Heading>
                       <p>
                         Having worked at Fortune 20 companies, we know how to build software that
@@ -189,7 +97,7 @@ const IndexPage: FunctionComponent<Record<string, never>> = () => {
                 </Column>
                 <Column md={4} mdOffset={2}>
                   <SpacerWrapper>
-                    <ScrollAnimation animateIn="animate__fadeInRight" animateOnce>
+                    <ScrollAnimation animateIn="animate__fadeInRight">
                       <Heading as="h2">An Idea is Not Just an Idea</Heading>
                       <p>
                         We work with ideas scribbled in the margins just as easily as we manage
@@ -208,17 +116,17 @@ const IndexPage: FunctionComponent<Record<string, never>> = () => {
             <PageContainer>
               <Row>
                 <Column md={8}>
-                  <ScrollAnimation animateIn="animate__fadeInDown" animateOnce>
+                  <ScrollAnimation animateIn="animate__fadeInDown">
                     <img
                       src="https://via.placeholder.com/1600x900"
                       alt=""
                       style={{ opacity: 0.5, marginBottom: doubleSpacer }}
                     />
                   </ScrollAnimation>
-                  <ScrollAnimation animateIn="animate__fadeInUp" animateOnce>
+                  <ScrollAnimation animateIn="animate__fadeInUp">
                     <Heading as="h3">Galileo as a Partner</Heading>
                   </ScrollAnimation>
-                  <ScrollAnimation animateIn="animate__fadeInUp" delay={300} animateOnce>
+                  <ScrollAnimation animateIn="animate__fadeInUp" delay={300}>
                     <p>
                       We’ve worked FOR people all our careers. With Galileo, we choose to work WITH
                       partners, cooperating to create amazing technology products and solutions. We
@@ -237,12 +145,14 @@ const IndexPage: FunctionComponent<Record<string, never>> = () => {
               <Row>
                 <Column md={6}>
                   <SpacerWrapper>
-                    <ScrollAnimation animateIn="animate__zoomIn" animateOnce>
+                    <ScrollAnimation animateIn="animate__zoomIn">
                       <Heading as="h4">Go Faster. Deliver Sooner</Heading>
                       <p>
-                        We are agile, collaborative teachers who do. We aren’t consultants. We apply
-                        just the right amount of structure to remove chaos, and replace it with
-                        velocity.
+                        <small>
+                          We are agile, collaborative teachers who do. We aren’t consultants. We
+                          apply just the right amount of structure to remove chaos, and replace it
+                          with velocity.
+                        </small>
                       </p>
                     </ScrollAnimation>
                   </SpacerWrapper>
@@ -251,13 +161,15 @@ const IndexPage: FunctionComponent<Record<string, never>> = () => {
               <Row>
                 <Column md={6} mdOffset={3}>
                   <SpacerWrapper>
-                    <ScrollAnimation animateIn="animate__zoomIn" delay={300} animateOnce>
+                    <ScrollAnimation animateIn="animate__zoomIn" delay={300}>
                       <Heading as="h4">We are Product People</Heading>
                       <p>
-                        We are businesspeople who know technology. We have decades of combined
-                        experience across verticals like healthcare, manufacturing, retail, and
-                        healthcare (yep, we said that twice). We don’t hawk cool tech; we promote
-                        business solutions.
+                        <small>
+                          We are businesspeople who know technology. We have decades of combined
+                          experience across verticals like healthcare, manufacturing, retail, and
+                          healthcare (yep, we said that twice). We don’t hawk cool tech; we promote
+                          business solutions.
+                        </small>
                       </p>
                     </ScrollAnimation>
                   </SpacerWrapper>
@@ -266,13 +178,15 @@ const IndexPage: FunctionComponent<Record<string, never>> = () => {
               <Row>
                 <Column md={6} mdOffset={6}>
                   <SpacerWrapper>
-                    <ScrollAnimation animateIn="animate__zoomIn" delay={600} animateOnce>
+                    <ScrollAnimation animateIn="animate__zoomIn" delay={600}>
                       <Heading as="h4">We Know the Value of Everything</Heading>
                       <p>
-                        &apos;Value&apos; is not measured just by the lines of code alone. Value
-                        comes from delivering secure, compliant solutions that connect with your
-                        customers. We have the skillsets to help you ideate, define and build
-                        superior solutions.
+                        <small>
+                          &apos;Value&apos; is not measured just by the lines of code alone. Value
+                          comes from delivering secure, compliant solutions that connect with your
+                          customers. We have the skillsets to help you ideate, define and build
+                          superior solutions.
+                        </small>
                       </p>
                     </ScrollAnimation>
                   </SpacerWrapper>
