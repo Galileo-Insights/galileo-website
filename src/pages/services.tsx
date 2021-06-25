@@ -16,6 +16,7 @@ import {
 } from '@components';
 import Orbits from '@images/orbits';
 import hero from '@images/0a0a97ff878e72c49d83b78043c2881e.jpeg';
+import { doubleSpacer } from '@styles/size';
 
 type ServicesProps = unknown;
 
@@ -153,10 +154,17 @@ const Services: FunctionComponent<ServicesProps> = () => {
             <PageContainer>
               <Row>
                 <Column md={8}>
-                  <ScrollAnimation animateIn="animate__fadeInRight">
+                  <ScrollAnimation animateIn="animate__fadeInDown">
+                    <img
+                      src="https://via.placeholder.com/1600x900"
+                      alt=""
+                      style={{ opacity: 0.5, marginBottom: doubleSpacer }}
+                    />
+                  </ScrollAnimation>
+                  <ScrollAnimation animateIn="animate__fadeInLeft">
                     <Heading as="h3">Galileo Pod</Heading>
                   </ScrollAnimation>
-                  <ScrollAnimation animateIn="animate__fadeInLeft" delay={300}>
+                  <ScrollAnimation animateIn="animate__fadeInUp">
                     <p>
                       We firmly believe Product, Development, & UX working together create better
                       projects. This is not unique but weighting each equally and putting them in

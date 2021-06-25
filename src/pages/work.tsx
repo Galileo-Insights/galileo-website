@@ -154,7 +154,6 @@ const Work: FunctionComponent<WorkProps> = () => {
             <div
               style={{
                 maxWidth: '80vw',
-                borderRadius: '0 3px 96px 0',
                 backgroundColor: 'rgba(251,248,226,.6)',
                 padding: '16px',
               }}
@@ -213,7 +212,7 @@ const Work: FunctionComponent<WorkProps> = () => {
                   <ScrollAnimation animateIn="animate__fadeInDown">
                     <Heading as="h3">Our Work</Heading>
                   </ScrollAnimation>
-                  <ScrollAnimation animateIn="animate__fadeInTop" delay={300}>
+                  <ScrollAnimation animateIn="animate__fadeInUp" delay={300}>
                     <p>
                       We work with a lot of discretion. Your work is proprietary as are many of our
                       clients’. We would love to talk and explain a little more, but perhaps like

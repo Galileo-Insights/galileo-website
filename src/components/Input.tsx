@@ -24,6 +24,7 @@ import {
   brandPrimaryRGB,
   lightGray,
   brandSuccess,
+  black,
 } from '@styles/color';
 import { baseBorderStyle, disabledStyle, visuallyHiddenStyle } from '@styles/mixins';
 
@@ -52,8 +53,8 @@ export const sharedStyles = css`
   /* https://stackoverflow.com/questions/2989263/disable-auto-zoom-in-input-text-tag-safari-on-iphone */
   font-size: ${fontSizeH6};
   line-height: ${lineHeightBase};
-  color: ${textColor};
-  background-color: #ffffff;
+  color: ${black};
+  background-color: rgba(255, 255, 255, 0.9);
   background-image: none;
   border: ${baseBorderStyle};
   border-radius: ${borderRadius};
