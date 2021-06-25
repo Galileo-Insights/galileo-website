@@ -89,7 +89,6 @@ const Services: FunctionComponent<ServicesProps> = () => {
             <div
               style={{
                 maxWidth: '80vw',
-                borderRadius: '96px 0 0 3px',
                 backgroundColor: 'rgba(251,248,226,.6)',
                 padding: '16px',
               }}

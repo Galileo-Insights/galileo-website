@@ -57,7 +57,6 @@ export const sharedStyles = css`
   background-color: rgba(255, 255, 255, 0.9);
   background-image: none;
   border: ${baseBorderStyle};
-  border-radius: ${borderRadius};
   transition: border-color 0.2s ease-in-out;
 
   ${(meta: FieldMetaProps<string>) =>

@@ -2,13 +2,7 @@ import React, { CSSProperties, FunctionComponent } from 'react';
 import styled, { css } from 'styled-components';
 import AniLink from 'gatsby-plugin-transition-link/AniLink';
 
-import {
-  baseAndAHalfSpacer,
-  baseSpacer,
-  borderRadius,
-  halfSpacer,
-  inputHeight,
-} from '@styles/size';
+import { baseAndAHalfSpacer, baseSpacer, halfSpacer, inputHeight } from '@styles/size';
 import { fontFamilySansSerif, fontSizeBase } from '@styles/typography';
 import { black, brandPrimary, brandPrimaryHover } from '@styles/color';
 import { baseBorderStyle, disabledStyle } from '@styles/mixins';
@@ -46,7 +40,6 @@ const allStyles = css`
   height: ${inputHeight};
   transition: all 0.2s ease-in-out;
   text-decoration: none;
-  border-radius: ${borderRadius};
   background-color: ${brandPrimary};
   color: ${black};
 
