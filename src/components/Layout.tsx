@@ -18,7 +18,7 @@ import { FlexContainer, PageContainer } from '.';
 type LayoutProps = unknown;
 
 const StyledNav = styled.nav`
-  padding: ${(props) => props.theme.sizes.baseSpacer} 0;
+  padding: ${(props) => props.theme.sizes.quarterSpacer} 0;
   z-index: 5;
   position: relative;
   background-color: rgba(0, 0, 0, 0.6);
@@ -72,7 +72,7 @@ const StyledLink = styled(AniLink)`
 `;
 
 const Footer = styled.footer`
-  padding: ${(props) => props.theme.sizes.baseSpacer} 0;
+  padding: ${(props) => props.theme.sizes.quarterSpacer} 0;
   z-index: 5;
   position: relative;
   background-color: rgba(0, 0, 0, 0.6);

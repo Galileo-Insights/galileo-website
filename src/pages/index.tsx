@@ -18,7 +18,6 @@ import MoonPhases from '@images/moon-phases';
 import galileo from '@images/galileo.png';
 import drawing from '@images/drawing.png';
 import { doubleSpacer } from '@styles/size';
-import { textColor } from '@styles/color';
 
 const FirstSectionBackground = styled.div`
   position: absolute;
@@ -51,6 +50,10 @@ const SpacerWrapper = styled.div`
   padding: ${(props) => props.theme.sizes.tripleSpacer} 0;
 `;
 
+const HeroText = styled.div`
+  padding: ${(props) => props.theme.sizes.doubleSpacer} 0;
+`;
+
 const IndexPage: FunctionComponent<Record<string, never>> = () => {
   return (
     <Layout>
@@ -58,36 +61,20 @@ const IndexPage: FunctionComponent<Record<string, never>> = () => {
       <main style={{ position: 'relative', zIndex: 4 }}>
         <div style={{ display: 'grid' }}>
           <StaticImage
-            style={{ gridArea: '1/1' }}
-            layout="fullWidth"
-            aspectRatio={16 / 9}
+            style={{ gridArea: '1/1', maxWidth: 800, margin: '0 auto' }}
+            layout="constrained"
             alt=""
-            src="../images/galileo news wide v2.png"
+            src="../images/index-hero-mobile.png"
             formats={['auto']}
           />
-          <div
-            style={{
-              gridArea: '1/1',
-              position: 'relative',
-              placeItems: 'center',
-              display: 'grid',
-              alignItems: 'flex-start',
-              padding: '16px',
-            }}
-          >
-            <Heading
-              as="h1"
-              style={{
-                color: 'rgba(0,0,0,.8)',
-                filter: `drop-shadow(0px 0px 8px ${textColor})`,
-                fontSize: '3em',
-              }}
-              align="center"
-            >
+        </div>
+        <HeroText>
+          <PageContainer>
+            <Heading align="center" style={{ fontSize: '3em' }}>
               We make really good software.
             </Heading>
-          </div>
-        </div>
+          </PageContainer>
+        </HeroText>
         <Section background="rgba(0, 0, 0, 0.6)">
           <FirstSectionBackground style={{ transform: 'skew(0, 5deg)' }}>
             <MoonPhases fill="#2d2d2d" />
