@@ -1,6 +1,12 @@
 module.exports = {
   siteMetadata: {
     title: 'Galileo Insights',
+    description:
+      'Having worked at Fortune 20 companies, we know how to build software that integrates behind corporate firewalls. We work with ideas scribbled in the margins just as easily as we manage existing code. We help bring concepts to life.',
+    author: '',
+    url: 'https://galileo-insights.com',
+    siteUrl: 'https://galileo-insights.com',
+    image: '/img/meta.png',
   },
   plugins: [
     'gatsby-plugin-netlify-cms',
@@ -8,6 +14,7 @@ module.exports = {
     'gatsby-plugin-eslint',
     'gatsby-plugin-styled-components',
     'gatsby-plugin-image',
+    'gatsby-plugin-transition-link',
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-alias-imports',
@@ -29,7 +36,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        icon: 'src/images/icon.png',
+        icon: 'src/images/favicon.png',
       },
     },
     'gatsby-transformer-remark',

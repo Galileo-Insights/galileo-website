@@ -6,7 +6,7 @@ import {
   textColor,
   headingsColor,
   lightGray,
-  brandSecondary,
+  black,
 } from '@styles/color';
 import { baseSpacer, halfSpacer, quarterSpacer } from '@styles/size';
 import { headingsFontFamily, fontFamilySansSerif } from '@styles/typography';
@@ -74,7 +74,7 @@ const CssReset = createGlobalStyle`
   html {
     font-size: 16px;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
-    background-color: ${brandSecondary};
+    background-color: ${black};
   }
 
   body {
@@ -84,7 +84,7 @@ const CssReset = createGlobalStyle`
     line-height: calc(18px + 1.05vw); /* Responsive Vertical Rhythm */
     color: ${textColor};
     overflow-x: hidden;
-    background-color: ${brandSecondary};
+    background-color: ${black};
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -254,12 +254,12 @@ const CssReset = createGlobalStyle`
   }
 
   ::-moz-selection {
-      color: ${brandSecondary};
+      color: ${black};
       background: ${textColor};
   }
 
   ::selection {
-      color: ${brandSecondary};
+      color: ${black};
       background: ${textColor};
   }
 

@@ -3,8 +3,19 @@ import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 import ScrollAnimation from 'react-animate-on-scroll';
 
-import { Layout, Heading, Section, SectionInner, PageContainer, Row, Column } from '@components';
-import Orbits from '@images/orbits';
+import {
+  Button,
+  Layout,
+  Heading,
+  Section,
+  SectionInner,
+  PageContainer,
+  Row,
+  Column,
+  Seo,
+} from '@components';
+import SunAndMoon from '@images/sun-and-moon';
+import hero from '@images/Compass-On-Old-World-Map-With-Navigational-Lines-On-Textured-Surface-1053985508_2125x1416.jpeg';
 
 type WorkProps = unknown;
 
@@ -14,10 +25,6 @@ const FirstSectionBackground = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-
-  & svg {
-    width: 2000px;
-  }
 `;
 
 const SecondSectionBackground = styled.div`
@@ -115,8 +122,17 @@ const WorkItem = styled.div<{ reverse?: boolean }>`
 `;
 
 const Work: FunctionComponent<WorkProps> = () => {
+  const description =
+    'The past may not be a predictor of the future, but all the same, we have done some pretty awesome stuff!';
   return (
     <Layout>
+      <Seo
+        title="Work"
+        description={description}
+        image={hero}
+        imageHeight={1414}
+        imageWidth={2121}
+      />
       <main style={{ position: 'relative', zIndex: 4 }}>
         <div style={{ display: 'grid' }}>
           <StaticImage
@@ -152,21 +168,18 @@ const Work: FunctionComponent<WorkProps> = () => {
               >
                 We Truly Like What We’ve Done
               </Heading>
-              <p style={{ color: 'rgba(0,0,0,.8)' }}>
-                The past may not be a predictor of the future, but al the same, we have done some
-                pretty awesome stuff!
-              </p>
+              <p style={{ color: 'rgba(0,0,0,.8)' }}>{description}</p>
             </div>
           </div>
         </div>
         <Section background="rgba(0, 0, 0, 0.6)">
           <FirstSectionBackground>
-            <Orbits fill="#1d1d1d" />
+            <SunAndMoon fill="#2d2d2d" />
           </FirstSectionBackground>
           <SectionInner>
             <PageContainer>
               <Row>
-                <Column md={8} mdOffset={2}>
+                <Column md={8} mdOffset={4}>
                   <ScrollAnimation animateIn="animate__fadeInRight">
                     <Heading as="h2">
                       The Galileo team are technology-savvy businesspeople with a bias for action
@@ -336,6 +349,9 @@ const Work: FunctionComponent<WorkProps> = () => {
                     We have a lot more, but let’s talk a little and see what we can do for you!
                   </small>
                 </p>
+                <Button type="link" to="/contact">
+                  Let&apos;s Talk
+                </Button>
               </ScrollAnimation>
             </PageContainer>
           </SectionInner>

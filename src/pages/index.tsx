@@ -3,7 +3,17 @@ import styled from 'styled-components';
 import ScrollAnimation from 'react-animate-on-scroll';
 import { StaticImage } from 'gatsby-plugin-image';
 
-import { Column, Heading, Layout, PageContainer, Row, Section, SectionInner } from '@components';
+import {
+  Button,
+  Column,
+  Heading,
+  Layout,
+  PageContainer,
+  Row,
+  Section,
+  SectionInner,
+  Seo,
+} from '@components';
 import MoonPhases from '@images/moon-phases';
 import galileo from '@images/galileo.png';
 import drawing from '@images/drawing.png';
@@ -44,6 +54,7 @@ const SpacerWrapper = styled.div`
 const IndexPage: FunctionComponent<Record<string, never>> = () => {
   return (
     <Layout>
+      <Seo title="About Us" />
       <main style={{ position: 'relative', zIndex: 4 }}>
         <div style={{ display: 'grid' }}>
           <StaticImage
@@ -90,7 +101,7 @@ const IndexPage: FunctionComponent<Record<string, never>> = () => {
                       <Heading as="h2">From Startup to Sold</Heading>
                       <p>
                         Having worked at Fortune 20 companies, we know how to build software that
-                        integrates behind corporate firewalls
+                        integrates behind corporate firewalls.
                       </p>
                     </ScrollAnimation>
                   </SpacerWrapper>
@@ -101,7 +112,7 @@ const IndexPage: FunctionComponent<Record<string, never>> = () => {
                       <Heading as="h2">An Idea is Not Just an Idea</Heading>
                       <p>
                         We work with ideas scribbled in the margins just as easily as we manage
-                        existing code. We help bring concepts to life
+                        existing code. We help bring concepts to life.
                       </p>
                     </ScrollAnimation>
                   </SpacerWrapper>
@@ -138,7 +149,7 @@ const IndexPage: FunctionComponent<Record<string, never>> = () => {
             </PageContainer>
           </SectionInner>
         </Section>
-        <Section background="rgba(120,120,120, 0.2)">
+        <Section background="rgba(251,248,226,.3)">
           <SectionInner>
             <ThirdSectionBackground />
             <PageContainer>
@@ -192,6 +203,22 @@ const IndexPage: FunctionComponent<Record<string, never>> = () => {
                   </SpacerWrapper>
                 </Column>
               </Row>
+            </PageContainer>
+          </SectionInner>
+        </Section>
+        <Section background="rgba(120,120,120, 0.2)" reverse>
+          <SectionInner reverse>
+            <PageContainer>
+              <ScrollAnimation animateIn="animate__zoomIn">
+                <p>
+                  <small>
+                    Interested in learning more about us? We&apos;d love to have a chat.
+                  </small>
+                </p>
+                <Button type="link" to="/contact">
+                  Let&apos;s Talk
+                </Button>
+              </ScrollAnimation>
             </PageContainer>
           </SectionInner>
         </Section>

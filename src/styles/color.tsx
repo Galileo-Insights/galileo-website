@@ -5,7 +5,7 @@
 
 const submarine = '#BAC3C8';
 const riverbed = '#4A555A';
-const red = '#7d2600';
+const red = '#d44b10';
 // const green = '#37570e';
 const green = '#578220';
 
@@ -41,7 +41,7 @@ export const brandInfo = '#e29d03';
 export const brandDanger = red;
 
 // Grayscale for UI (borders, shadows, etc)
-export const black = '#000A19';
+export const black = '#000000';
 export const darkGray = '#3e3e3e';
 export const gray = riverbed;
 export const lightGray = submarine;

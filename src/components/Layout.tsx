@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import styled, { keyframes, ThemeProvider } from 'styled-components';
-import { Link } from 'gatsby';
+import AniLink from 'gatsby-plugin-transition-link/AniLink';
 import { FaPhoneAlt, FaMapMarkerAlt } from 'react-icons/fa';
 import 'animate.css/animate.min.css';
 
@@ -15,9 +15,7 @@ import clouds from '@images/clouds3.png';
 import clouds2 from '@images/clouds2.png';
 import { FlexContainer, PageContainer } from '.';
 
-type LayoutProps = {
-  pageTitle?: string;
-};
+type LayoutProps = unknown;
 
 const StyledNav = styled.nav`
   padding: ${(props) => props.theme.sizes.baseSpacer} 0;
@@ -28,7 +26,7 @@ const StyledNav = styled.nav`
   box-shadow: 0px 8px 64px 16px rgba(70, 51, 4, 0.5);
 `;
 
-const StyledLogo = styled(Link)`
+const StyledLogo = styled(AniLink)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,7 +59,7 @@ const StyledLogoText = styled.span`
   transition: all 0.5s ease-in-out;
 `;
 
-const StyledLink = styled(Link)`
+const StyledLink = styled(AniLink)`
   color: ${(props) => props.theme.colors.brandPrimaryHover};
   padding: ${(props) => props.theme.sizes.halfSpacer};
   font-size: ${(props) => props.theme.sizes.fontSizeSmall};
@@ -150,10 +148,10 @@ const Clouds2 = styled.div`
   animation: ${moveCloudsBack} 400s linear infinite;
 `;
 
-const Layout: FunctionComponent<LayoutProps> = ({ pageTitle, children }) => {
+const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
   const renderNav = () => (
     <FlexContainer justifyContent="space-between">
-      <StyledLogo to="/">
+      <StyledLogo to="/" paintDrip color="rgba(0,0,0,.9)">
         <Logo fill={brandPrimaryHover} />{' '}
         <StyledLogoText>
           Galileo
@@ -162,16 +160,24 @@ const Layout: FunctionComponent<LayoutProps> = ({ pageTitle, children }) => {
         </StyledLogoText>
       </StyledLogo>
       <div>
-        <StyledLink to="/services">Services</StyledLink>
-        <StyledLink to="/work">Work</StyledLink>
-        <StyledLink to="/contact">Contact</StyledLink>
+        <StyledLink to="/" paintDrip color="rgba(0,0,0,.9)">
+          Home
+        </StyledLink>
+        <StyledLink to="/services" paintDrip color="rgba(0,0,0,.9)">
+          Services
+        </StyledLink>
+        <StyledLink to="/work" paintDrip color="rgba(0,0,0,.9)">
+          Work
+        </StyledLink>
+        <StyledLink to="/contact" paintDrip color="rgba(0,0,0,.9)">
+          Contact
+        </StyledLink>
       </div>
     </FlexContainer>
   );
   return (
     <ThemeProvider theme={theme}>
       <div>
-        {console.log(pageTitle)}
         <CssReset />
         <StyledNav>
           <PageContainer>{renderNav()}</PageContainer>

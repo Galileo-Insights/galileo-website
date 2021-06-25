@@ -3,8 +3,19 @@ import styled from 'styled-components';
 import { StaticImage } from 'gatsby-plugin-image';
 import ScrollAnimation from 'react-animate-on-scroll';
 
-import { Layout, Heading, Section, SectionInner, PageContainer, Row, Column } from '@components';
+import {
+  Layout,
+  Heading,
+  Section,
+  SectionInner,
+  PageContainer,
+  Row,
+  Column,
+  Button,
+  Seo,
+} from '@components';
 import Orbits from '@images/orbits';
+import hero from '@images/0a0a97ff878e72c49d83b78043c2881e.jpeg';
 
 type ServicesProps = unknown;
 
@@ -39,12 +50,23 @@ const ThirdSectionBackground = styled.div`
 `;
 
 const SpacerWrapper = styled.div`
-  padding: ${(props) => props.theme.sizes.tripleSpacer} 0;
+  margin: ${(props) => props.theme.sizes.tripleSpacer} 0;
+  padding: ${(props) => props.theme.sizes.doubleSpacer};
+  background: rgba(0, 0, 0, 0.8);
 `;
 
 const Services: FunctionComponent<ServicesProps> = () => {
+  const description =
+    'Each Project is unique, facing different constraints and offering tons of possible solutions. We don’t offer a one-size fits all model, because there really isn’t one.';
   return (
     <Layout>
+      <Seo
+        title="Services"
+        description={description}
+        image={hero}
+        imageWidth={1374}
+        imageHeight={931}
+      />
       <main style={{ position: 'relative', zIndex: 4 }}>
         <div style={{ display: 'grid' }}>
           <StaticImage
@@ -81,16 +103,13 @@ const Services: FunctionComponent<ServicesProps> = () => {
               >
                 We Don&apos;t Follow a Script.
               </Heading>
-              <p style={{ color: 'rgba(0,0,0,.8)', textAlign: 'right' }}>
-                Each Project is unique, facing different constraints and offering tons of possible
-                solutions. We don’t offer a one-size fits all model, because there really isn’t one.
-              </p>
+              <p style={{ color: 'rgba(0,0,0,.8)', textAlign: 'right' }}>{description}</p>
             </div>
           </div>
         </div>
         <Section background="rgba(0, 0, 0, 0.6)">
           <FirstSectionBackground>
-            <Orbits fill="#2d2d2d" />
+            <Orbits fill="#1d1d1d" />
           </FirstSectionBackground>
           <SectionInner>
             <PageContainer>
@@ -132,27 +151,31 @@ const Services: FunctionComponent<ServicesProps> = () => {
           <SectionInner reverse>
             <SecondSectionBackground />
             <PageContainer>
-              <ScrollAnimation animateIn="animate__fadeInRight">
-                <Heading as="h3">Galileo Pod</Heading>
-              </ScrollAnimation>
-              <ScrollAnimation animateIn="animate__fadeInLeft" delay={300}>
-                <p>
-                  We firmly believe Product, Development, & UX working together create better
-                  projects. This is not unique but weighting each equally and putting them in the
-                  same room is.
-                </p>
-              </ScrollAnimation>
+              <Row>
+                <Column md={8}>
+                  <ScrollAnimation animateIn="animate__fadeInRight">
+                    <Heading as="h3">Galileo Pod</Heading>
+                  </ScrollAnimation>
+                  <ScrollAnimation animateIn="animate__fadeInLeft" delay={300}>
+                    <p>
+                      We firmly believe Product, Development, & UX working together create better
+                      projects. This is not unique but weighting each equally and putting them in
+                      the same room is.
+                    </p>
+                  </ScrollAnimation>
+                </Column>
+              </Row>
             </PageContainer>
           </SectionInner>
         </Section>
-        <Section background="rgba(120,120,120, 0.2)">
+        <Section background="rgba(251,248,226,.3)">
           <SectionInner>
             <ThirdSectionBackground />
             <PageContainer>
               <Row>
                 <Column md={6} mdOffset={6}>
-                  <SpacerWrapper>
-                    <ScrollAnimation animateIn="animate__zoomIn">
+                  <ScrollAnimation animateIn="animate__zoomIn">
+                    <SpacerWrapper>
                       <Heading as="h4">Light-Weight Methodology</Heading>
                       <p>
                         <small>
@@ -162,14 +185,14 @@ const Services: FunctionComponent<ServicesProps> = () => {
                           to the day- to-day but are not bogged down by project management.
                         </small>
                       </p>
-                    </ScrollAnimation>
-                  </SpacerWrapper>
+                    </SpacerWrapper>
+                  </ScrollAnimation>
                 </Column>
               </Row>
               <Row>
                 <Column md={6} mdOffset={3}>
-                  <SpacerWrapper>
-                    <ScrollAnimation animateIn="animate__zoomIn" delay={300}>
+                  <ScrollAnimation animateIn="animate__zoomIn" delay={300}>
+                    <SpacerWrapper>
                       <Heading as="h4">Full Stack Capabilities</Heading>
                       <p>
                         <small>
@@ -179,14 +202,14 @@ const Services: FunctionComponent<ServicesProps> = () => {
                           reasons to add to our skill set. In the end, we code. We code with a plan.
                         </small>
                       </p>
-                    </ScrollAnimation>
-                  </SpacerWrapper>
+                    </SpacerWrapper>
+                  </ScrollAnimation>
                 </Column>
               </Row>
               <Row>
                 <Column md={6}>
-                  <SpacerWrapper>
-                    <ScrollAnimation animateIn="animate__zoomIn" delay={600}>
+                  <ScrollAnimation animateIn="animate__zoomIn" delay={600}>
+                    <SpacerWrapper>
                       <Heading as="h4">UX, Research & Product</Heading>
                       <p>
                         <small>
@@ -197,10 +220,24 @@ const Services: FunctionComponent<ServicesProps> = () => {
                           there is a context and people who use technology.
                         </small>
                       </p>
-                    </ScrollAnimation>
-                  </SpacerWrapper>
+                    </SpacerWrapper>
+                  </ScrollAnimation>
                 </Column>
               </Row>
+            </PageContainer>
+          </SectionInner>
+        </Section>
+        <Section background="rgba(120,120,120, 0.2)" reverse>
+          <SectionInner reverse>
+            <PageContainer>
+              <ScrollAnimation animateIn="animate__zoomIn">
+                <p>
+                  <small>We do it all. Not seeing what you&apos;re looking for?</small>
+                </p>
+                <Button type="link" to="/contact">
+                  Let&apos;s Talk
+                </Button>
+              </ScrollAnimation>
             </PageContainer>
           </SectionInner>
         </Section>
