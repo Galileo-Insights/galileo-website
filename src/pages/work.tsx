@@ -181,8 +181,8 @@ const Work: FunctionComponent<WorkProps> = () => {
                 <Column md={8} mdOffset={4}>
                   <ScrollAnimation animateIn="animate__fadeInRight">
                     <Heading as="h2">
-                      The Galileo team are technology-savvy businesspeople with a bias for action
-                      and a passion for improving healthcare
+                      The Galileo team is technology-savvy businesspeople with a bias for action and
+                      a passion for improving healthcare
                     </Heading>
                   </ScrollAnimation>
                   <ScrollAnimation animateIn="animate__fadeInLeft" delay={300}>
@@ -240,9 +240,8 @@ const Work: FunctionComponent<WorkProps> = () => {
                           <Heading as="h4">EHR Integration</Heading>
                           <p>
                             <small>
-                              We created a HIPAA compliant product to interface to major payer FHIR
-                              services, transform the results and integrates into the EHR
-                              workstream.
+                              A HIPAA compliant product to interface to major payer FHIR services,
+                              transform the results and integrates into the EHR workstream.
                             </small>
                           </p>
                         </WorkItemText>
@@ -269,8 +268,8 @@ const Work: FunctionComponent<WorkProps> = () => {
                           <Heading as="h4">Physician Quality</Heading>
                           <p>
                             <small>
-                              We put together a solution that collected e-consents that allowed
-                              physician groups to send quality scores to CMS.
+                              A solution that collected e-consents that allowed physician groups to
+                              send quality scores to CMS.
                             </small>
                           </p>
                         </WorkItemText>
@@ -296,10 +295,7 @@ const Work: FunctionComponent<WorkProps> = () => {
                         <WorkItemText>
                           <Heading as="h4">Cancer Detection</Heading>
                           <p>
-                            <small>
-                              We work with a great group employing Machine Learning & AI to detect
-                              different cancer cells.
-                            </small>
+                            <small>Machine Learning & AI to detect different cancer cells.</small>
                           </p>
                         </WorkItemText>
                       </WorkItemLayout>
